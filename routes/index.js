@@ -1,8 +1,13 @@
-const router = require('express').Router();
-const apiRoutes = require('./api');
+// Import necessary modules from Express
+const router = require("express").Router();
+// Import the API routes from the api file
+const apiRoutes = require("./api");
 
-router.use('/api', apiRoutes);
+// Middleware to handle routes starting with /api
+router.use("/api", apiRoutes);
 
-router.use((req, res) => res.send('Wrong route!'));
+// Default route handler for routes other than /api
+router.use((req, res) => res.send("Wrong route!"));
 
+// Export the router for use in the main application file
 module.exports = router;
