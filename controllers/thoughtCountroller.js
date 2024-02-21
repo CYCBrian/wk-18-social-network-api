@@ -116,7 +116,7 @@ module.exports = {
     try {
       const removeFromThought = await Thought.findOneAndUpdate(
         { _id: req.params._id },
-        { $pull: { reactions: req.params._id } },
+        { $pull: { reactions: req.params.reactionId } },
         { runValidators: true, new: true }
       );
       if (!removeFromThought) {
