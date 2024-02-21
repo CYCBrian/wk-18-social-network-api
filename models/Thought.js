@@ -41,7 +41,7 @@ const thoughtSchema = new Schema(
       getters: true, // Include getters when converting the schema to JSON
       virtuals: true, // Include virtual fields when converting the schema to JSON
     },
-    id: false, // Disable the default _id field
+    // id: false, // Disable the default _id field
   }
 );
 
