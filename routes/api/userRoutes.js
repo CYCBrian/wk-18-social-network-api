@@ -12,13 +12,16 @@ const{
 // /api/users
 router.route('/').get(getAllUsers).post(createUser);
 
-// /api/users/:_id
-router.route('/:_id').get(getOneUser).put(updateUser).delete(deleteUser);
+// /api/users/:userId
+router.route('/:userId').get(getOneUser).put(updateUser).delete(deleteUser);
 
-// /api/users/:_id/friends
-router.route('/:_id/friends').post(addFriend);
+// // /api/users/:userId/friends
+// router.route('/:userId/friends').post(addFriend);
 
-// /api/users/:_id/friends/:_id
-router.route('/:_id/friends/:_id').delete(deleteFriend)
+// /api/users/:userId/friends/:friendId
+router.route('/:userId/friends/:friendId').post(addFriend).delete(deleteFriend)
 
 module.exports = router;
+
+// /api/users/:userId/friends/:friendId
+

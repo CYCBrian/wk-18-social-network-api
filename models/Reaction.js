@@ -41,7 +41,7 @@ const reactionSchema = new Schema(
     toJSON: {
       getters: true, // Include getters when converting the schema to JSON
     },
-    // id: false, // Disable the default _id field
+    id: false, // Disable the default _id field
   }
 );
 

@@ -16,7 +16,7 @@ module.exports = {
   // Controller function to get a single thought by ID
   async getOneThought(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params._id });
+      const thought = await Thought.findOne({ _id: req.params.thoughtId });
       if (!thought) {
         return res.status(404).json({
           message: "No thought found with this ID.",
@@ -33,7 +33,7 @@ module.exports = {
     try {
       const newThought = await Thought.create(req.body);
       const thoughtCreator = await User.findOneAndUpdate(
-        { _id: req.body._id },
+        { _id: req.body.userId },
         { $push: { thoughts: newThought._id } },
         { new: true }
       );
@@ -52,7 +52,7 @@ module.exports = {
   async updateThought(req, res) {
     try {
       const updateThought = await Thought.findOneAndUpdate(
-        { _id: req.params._id },
+        { _id: req.params.thoughtId },
         { $set: req.body },
         { runValidators: true, new: true }
       );
@@ -70,15 +70,15 @@ module.exports = {
   // Controller function to delete a thought
   async deleteThought(req, res) {
     try {
-      const removeThought = await Thought.findOneAndDelete({ _id: req.params._id });
+      const removeThought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
       if (!removeThought) {
         return res.status(404).json({
           message: "No thought found with this ID.",
         });
       }
       const removeThoughtFromUser = await User.findOneAndUpdate(
-        { _id: req.params._id },
-        { $pull: { thoughts: req.params._id } },
+        { _id: req.params.thoughtId },
+        { $pull: { thoughts: req.params.thoughtId} },
         { new: true }
       );
       if (!removeThoughtFromUser) {
@@ -96,7 +96,7 @@ module.exports = {
   async addReaction(req, res) {
     try {
       const addToThought = await Thought.findOneAndUpdate(
-        { _id: req.params._id },
+        { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
@@ -115,7 +115,7 @@ module.exports = {
   async deleteReaction(req, res) {
     try {
       const removeFromThought = await Thought.findOneAndUpdate(
-        { _id: req.params._id },
+        { _id: req.params.thoughtId },
         { $pull: { reactions: req.params.reactionId } },
         { runValidators: true, new: true }
       );
