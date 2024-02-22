@@ -40,7 +40,7 @@ const userSchema = new Schema(
     toJSON: {
       virtuals: true, // Include virtual fields when converting the schema to JSON
     },
-    // id: false, // Disable the default _id field
+    id: false, // Disable the default _id field
   }
 );
 
