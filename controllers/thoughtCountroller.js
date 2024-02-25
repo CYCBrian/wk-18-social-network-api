@@ -77,8 +77,8 @@ module.exports = {
         });
       }
       const removeThoughtFromUser = await User.findOneAndUpdate(
-        { _id: req.params.thoughtId },
-        { $pull: { thoughts: req.params.thoughtId} },
+        { thoughts: req.params.thoughtId },
+        { $pull: { thoughts: req.params.thoughtId } },
         { new: true }
       );
       if (!removeThoughtFromUser) {
@@ -116,7 +116,7 @@ module.exports = {
     try {
       const removeFromThought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: req.params.reactionId } },
+        { $pull: { reactions:{ reactionId: req.params.reactionId} } },
         { runValidators: true, new: true }
       );
       if (!removeFromThought) {
