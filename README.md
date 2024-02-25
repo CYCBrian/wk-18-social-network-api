@@ -63,9 +63,7 @@ Using Insomnia or a similar app, you can interact with the server in the followi
 - **Update Single Thought**:  send a PUT request  with the endpoint of /api/thoughts/:thoughtId and the following req.body:
 
       {
-	        "thoughtText": "String.",
-	        "username": "String",
-	        "userId": "objectId"
+	        "thoughtText": "String."
       }
 
 - **Delete Single Thought**:  send a DELETE request  with the endpoint of /api/thoughts/:thoughtId
