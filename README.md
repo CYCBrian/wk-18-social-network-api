@@ -68,9 +68,14 @@ Using Insomnia or a similar app, you can interact with the server in the followi
 
 - **Delete Single Thought**:  send a DELETE request  with the endpoint of /api/thoughts/:thoughtId
 
-- **Add New Friend**:  send a POST request with the endpoint of /api/thoughts/:thoughtId/reactions/:reactionId
+- **Add New Reaction**:  send a POST request with the endpoint of /api/thoughts/:thoughtId/reactions/:reactionId and the following req.body:
 
-- **Delete Single Friend**:  send a DELETE request with the endpoint of /api/thoughts/:thoughtId/reactions/:reactionId
+      {
+		"reactionBody": "Unsubscribe",
+		"username": "CYCBrian"
+      }
+
+- **Delete Single Reaction**:  send a DELETE request with the endpoint of /api/thoughts/:thoughtId/reactions/:reactionId
 
 
 ## Demo
