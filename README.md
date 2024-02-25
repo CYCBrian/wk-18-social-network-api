@@ -14,7 +14,7 @@
 
 ## Overview
 
-This project is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and manage their friend list. The API is built using Express.js for routing, MongoDB for the database, and Mongoose ODM. It allows handling large amounts of unstructured data commonly seen in social networking platforms.
+This project is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and manage their friend list. The API is built using Express.js for routing, MongoDB for the database, and Mongoose ODM. It allows the handling of large amounts of unstructured data commonly seen in social networking platforms.
 
 ## Features
 
